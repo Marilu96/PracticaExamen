@@ -16,8 +16,40 @@ public class PanelInformacion extends javax.swing.JPanel {
      */
     public PanelInformacion() {
         initComponents();
+        cargarComboBox();
     }
 
+    
+    public String [] obtenerInformacionParaGuardar()
+    {
+        String arreglo [] = new String[3];
+        arreglo[0]= this.txtCedula.getText();
+        arreglo[1]= this.txtNombre.getText();
+        arreglo[2]= ""+this.jcbEdad.getSelectedItem();
+        
+        return arreglo;
+    }
+    
+    public void cargarComboBox()
+    {
+        this.jcbEdad.removeAllItems();
+        for (int i = 0; i < 100; i++) 
+        {
+            this.jcbEdad.addItem(i);
+        }
+    }
+    
+    public String devolverCedula()
+    {
+        return this.txtCedula.getText();
+    }
+    
+    public void mostrarInformacion(String arreglo[])
+    {
+        this.txtCedula.setText(arreglo[0]);
+        this.txtNombre.setText(arreglo[1]);
+        this.jcbEdad.setSelectedIndex(Integer.parseInt(arreglo[2]));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

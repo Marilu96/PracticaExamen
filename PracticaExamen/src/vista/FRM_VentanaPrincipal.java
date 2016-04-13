@@ -5,17 +5,27 @@
  */
 package vista;
 
+import controlador.Controlador_FRM_VentanaPrincipal;
+
 /**
  *
  * @author Usuario
  */
 public class FRM_VentanaPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FRM_VentanaPractica
-     */
+   Controlador_FRM_VentanaPrincipal controlador_FRM_VentanaPrincipal;
     public FRM_VentanaPrincipal() {
         initComponents();
+        controlador_FRM_VentanaPrincipal = new Controlador_FRM_VentanaPrincipal();
+        agregarEventos();
+        
+    }
+    
+    public void agregarEventos()
+    {
+        this.itemSalir.addActionListener(controlador_FRM_VentanaPrincipal);
+        this.itemPersonas.addActionListener(controlador_FRM_VentanaPrincipal);
+        
     }
 
     /**
